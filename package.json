@@ -1,0 +1,98 @@
+{
+  "name": "@statisticsnorway/dapla-catalog-viewer",
+  "version": "0.1.0",
+  "description": "Statistics Norway Dataplatform Catalog Viewer",
+  "main": "lib/bundle.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/statisticsnorway/dapla-catalog-viewer"
+  },
+  "author": "Statistics Norway",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@statisticsnorway/dapla-js-utilities": "^0.1.0",
+    "axios": "^0.20.0",
+    "axios-hooks": "^2.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.0",
+    "semantic-ui-css": "^2.4.0",
+    "semantic-ui-react": "^1.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "package": "rollup --config",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "coverage": "react-scripts test --coverage --watchAll=false"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**",
+      "!src/main.js",
+      "!src/index.js",
+      "!src/ssb-logo-rgb.svg",
+      "!src/**/index.js",
+      "!src/configurations/**",
+      "!src/enums/**",
+      "!src/__tests__/test-data/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 75,
+        "functions": 75,
+        "lines": 75,
+        "statements": 75
+      }
+    },
+    "coverageReporters": [
+      "cobertura",
+      "lcov",
+      "text"
+    ]
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "contributors": [
+    {
+      "name": "Magnus M. Jenssen"
+    }
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "@rollup/plugin-babel": "^5.2.0",
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@testing-library/jest-dom": "^5.0.0",
+    "@testing-library/react": "^10.0.0",
+    "@testing-library/user-event": "^12.0.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "rollup": "^2.26.5",
+    "rollup-plugin-terser": "^7.0.0"
+  }
+}

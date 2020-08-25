@@ -1,0 +1,41 @@
+name: $(Build.SourceBranch)-$(date:yyyyMMdd)$(rev:.r)
+
+trigger:
+  branches:
+    include:
+      - master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+jobs:
+  - job: pullRequest
+    displayName: 'Run tests and build library'
+    condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
+    steps:
+      - script: |
+          yarn
+          CI=true yarn coverage
+          CI=true yarn package
+  - job: mergeToMaster
+    displayName: 'Analyze code'
+    condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+    steps:
+      - script: |
+          yarn
+          CI=true yarn coverage
+      - task: PublishCodeCoverageResults@1
+        inputs:
+          codeCoverageTool: Cobertura
+          summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
+          reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
+      - task: SonarQubePrepare@4
+        inputs:
+          SonarQube: 'bipSonarQube'
+          scannerMode: 'CLI'
+          configMode: 'manual'
+          cliProjectKey: '$(Build.DefinitionName)'
+          cliProjectName: '$(Build.Repository.Name)'
+          cliSources: '.'
+      - task: SonarQubeAnalyze@4
+      - task: SonarQubePublish@4

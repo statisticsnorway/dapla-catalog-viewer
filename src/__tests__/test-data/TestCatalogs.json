@@ -1,0 +1,54 @@
+{
+  "catalogs": [
+    {
+      "id": {
+        "path": "/test/path/1",
+        "timestamp": "1595926728857"
+      },
+      "type": "UNBOUNDED",
+      "valuation": "OPEN",
+      "state": "RAW",
+      "pseudoConfig": {
+        "vars": [
+          {
+            "var": "**/something/number",
+            "pseudoFunc": "fpe-anychar(secret1)"
+          },
+          {
+            "var": "**/*otherNumber",
+            "pseudoFunc": "fpe-anychar(secret1)"
+          }
+        ]
+      }
+    },
+    {
+      "id": {
+        "path": "/another",
+        "timestamp": "1591622591634"
+      },
+      "type": "BOUNDED",
+      "valuation": "INTERNAL",
+      "state": "OTHER",
+      "pseudoConfig": {}
+    },
+    {
+      "id": {
+        "path": "/another/test/path/1",
+        "timestamp": "1591622591634"
+      },
+      "type": "BOUNDED",
+      "valuation": "INTERNAL",
+      "state": "OTHER",
+      "pseudoConfig": {}
+    },
+    {
+      "id": {
+        "path": "/another/test/path/2",
+        "timestamp": "1591622591634"
+      },
+      "type": "BOUNDED",
+      "valuation": "INTERNAL",
+      "state": "OTHER"
+    }
+  ]
+}
