@@ -1,6 +1,6 @@
 # dapla-catalog-viewer
 [![npm version](https://badge.fury.io/js/%40statisticsnorway%2Fdapla-catalog-viewer.svg)](https://badge.fury.io/js/%40statisticsnorway%2Fdapla-catalog-viewer)
-[![Build Status](https://dev.azure.com/statisticsnorway/Dapla/_apis/build/status/Frontends/statisticsnorway.dapla-catalog-viewer?branchName=master)](https://dev.azure.com/statisticsnorway/Dapla/_build/latest?definitionId=12&branchName=master)
+[![Build Status](https://dev.azure.com/statisticsnorway/Dapla/_apis/build/status/statisticsnorway.dapla-catalog-viewer?branchName=master)](https://dev.azure.com/statisticsnorway/Dapla/_build/latest?definitionId=74&branchName=master)
 
 This application is built for in-house use in Statistics Norway and it aims to create an interactive view of the
 catalogs exposed by [dapla-catalog](https://github.com/statisticsnorway/dapla-catalog).
@@ -26,11 +26,11 @@ The component requires a few peer dependencies to work, namely:
 
 In your application import the component.
 
-`import { CatalogView } from '@statisticsnorway/dapla-catalog-viewer'`
+`import { CatalogViewer } from '@statisticsnorway/dapla-catalog-viewer'`
 
 The component needs two properties to function correctly, `restApi` and `language`.
 
-`<CatalogView restApi='http://localhost:8080' language='en' />`
+`<CatalogViewer restApi='http://localhost:8080' language='en' />`
 
 `restApi` is the base url for any dapla-catalog service you wish to use and `language` sets the language of the component.
 `en` (English) and `nb` (Norwegian) is available.

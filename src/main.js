@@ -1,1 +1,1 @@
-export { default as CatalogView } from './components/AppHome'
+export { default as CatalogViewer } from './components/AppHome'
