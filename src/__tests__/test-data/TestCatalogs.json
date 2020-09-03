@@ -28,8 +28,7 @@
       },
       "type": "BOUNDED",
       "valuation": "INTERNAL",
-      "state": "OTHER",
-      "pseudoConfig": {}
+      "state": "OTHER"
     },
     {
       "id": {
