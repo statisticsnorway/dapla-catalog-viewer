@@ -1,8 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Dropdown, Header, Image, Menu, Sticky } from 'semantic-ui-react'
-import { LANGUAGE, SSB_COLORS } from '@statisticsnorway/dapla-js-utilities'
+import { LANGUAGE, SSB_COLORS, ssb_logo_rgb } from '@statisticsnorway/dapla-js-utilities'
 
-import SSBLogo from '../ssb-logo-rgb.svg'
 import { LanguageContext } from '../context/AppContext'
 import { UI } from '../enums'
 
@@ -24,7 +23,7 @@ function AppMenu ({ setSettingsOpen }) {
         }}
       >
         <Menu.Item>
-          <Image size={menuIsStuck ? 'small' : 'medium'} src={SSBLogo} />
+          <Image size={menuIsStuck ? 'small' : 'medium'} src={ssb_logo_rgb} />
         </Menu.Item>
         <Menu.Item>
           <Header size={menuIsStuck ? 'medium' : 'huge'} content={UI.HEADER[language]} />

@@ -7,9 +7,17 @@ import { AppHome } from '../components'
 import { TEST_CONFIGURATIONS } from '../configurations/TEST'
 import { TEST_IDS, UI } from '../enums'
 
+import TestCatalogs from './test-data/TestCatalogs.json'
+import EmptyCatalogs from './test-data/EmptyCatalogs.json'
+import CorruptedCatalogs from './test-data/CorruptedCatalogs.json'
+
 jest.mock('../components/views/PseudoConfigView', () => () => null)
 
-const { catalogs, emptyCatalogs, errorString, language } = TEST_CONFIGURATIONS
+global.console = {
+  log: jest.fn()
+}
+
+const { errorString, language, testPath } = TEST_CONFIGURATIONS
 const apiContext = TEST_CONFIGURATIONS.apiContext(jest.fn())
 const refetch = jest.fn()
 
@@ -22,30 +30,30 @@ const setup = () => {
 }
 
 describe('Common mock', () => {
-  useAxios.mockReturnValue([{ data: catalogs, error: undefined, loading: false }, refetch])
+  useAxios.mockReturnValue([{ data: TestCatalogs, error: undefined, loading: false }, refetch])
 
   test('Filtering catalogs table works correctly', async () => {
     const { getByPlaceholderText, getByText, queryAllByText } = setup()
 
-    expect(getByText('/test/path/1')).toBeInTheDocument()
+    expect(getByText(testPath)).toBeInTheDocument()
 
     await userEvent.type(getByPlaceholderText(UI.FILTER_TABLE[language]), '/another')
 
-    expect(queryAllByText('/test/path/1')).toHaveLength(0)
+    expect(queryAllByText(testPath)).toHaveLength(0)
   })
 
   test('Clicking labels filters catalogs rable correctly', () => {
     const { getAllByText, getByText, queryAllByText } = setup()
 
-    expect(getByText('/test/path/1')).toBeInTheDocument()
+    expect(getByText(testPath)).toBeInTheDocument()
 
     userEvent.click(getAllByText('/another')[0])
 
-    expect(queryAllByText('/test/path/1')).toHaveLength(0)
+    expect(queryAllByText(testPath)).toHaveLength(0)
 
     userEvent.click(getByText('/'))
 
-    expect(getByText('/test/path/1')).toBeInTheDocument()
+    expect(getByText(testPath)).toBeInTheDocument()
   })
 
   test('Table sorting works correctly', () => {
@@ -69,10 +77,17 @@ describe('Common mock', () => {
 })
 
 test('Does not crash', () => {
-  useAxios.mockReturnValue([{ data: emptyCatalogs, error: undefined, loading: false }, refetch])
+  useAxios.mockReturnValue([{ data: EmptyCatalogs, error: undefined, loading: false }, refetch])
   const { getByPlaceholderText } = setup()
 
   expect(getByPlaceholderText(UI.FILTER_TABLE[language]))
+})
+
+test('Handles API returning something else than an array of catalogs', () => {
+  useAxios.mockReturnValue([{ data: CorruptedCatalogs, error: undefined, loading: false }, refetch])
+  setup()
+
+  expect(global.console.log).toHaveBeenCalledWith('Recieved catalogs is not of Array format, recieved was:')
 })
 
 test('Renders error when api returns error', () => {

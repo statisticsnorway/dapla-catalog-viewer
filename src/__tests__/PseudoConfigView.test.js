@@ -6,8 +6,10 @@ import { PseudoConfigView } from '../components/views'
 import { TEST_CONFIGURATIONS } from '../configurations/TEST'
 import { TEST_IDS, UI } from '../enums'
 
-const { catalogs, language } = TEST_CONFIGURATIONS
-const testCatalog = catalogs.catalogs[0]
+import TestCatalogs from './test-data/TestCatalogs.json'
+
+const { language } = TEST_CONFIGURATIONS
+const testCatalog = TestCatalogs.catalogs[0]
 
 const setup = () => {
   const { getByPlaceholderText, getByTestId, getByText } = render(
