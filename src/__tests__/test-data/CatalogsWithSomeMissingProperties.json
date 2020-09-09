@@ -1,0 +1,19 @@
+[
+  {
+    "id": {
+      "path": "/test/path/1"
+    },
+    "state": "RAW"
+  },
+  {
+    "id": {
+      "path": "/test/path/2"
+    }
+  },
+  {
+    "id": {
+      "path": "/test/path/3"
+    },
+    "state": "OTHER"
+  }
+]

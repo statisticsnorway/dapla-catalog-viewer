@@ -1,0 +1,12 @@
+[
+  {
+    "id": {
+      "path": "/test/path/1"
+    }
+  },
+  {
+    "id": {
+      "path": "/test/path/2"
+    }
+  }
+]

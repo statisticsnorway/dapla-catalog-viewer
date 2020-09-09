@@ -1,17 +1,8 @@
 import { sortArrayBy } from '../utilities'
 
-const unsortableArray = [
-  {
-    id: {
-      path: '/test/path/1'
-    }
-  },
-  {
-    id: {
-      timestamp: '1595926728857'
-    }
-  }
-]
+import UnsortableCatalogs from './test-data/UnsortableCatalogs.json'
+import CatalogsWithMissingProperties from './test-data/CatalogsWithMissingProperties.json'
+import CatalogsWithSomeMissingProperties from './test-data/CatalogsWithSomeMissingProperties.json'
 
 test('Returns the array if type does not match a case', () => {
   const array = ['array with unrecognized type']
@@ -21,59 +12,28 @@ test('Returns the array if type does not match a case', () => {
 })
 
 test('Returns unsorted array if sorting on type nestedString is not possible', () => {
-  const sortedArray = sortArrayBy(unsortableArray, 'path', 'nestedString')
+  const sortedArray = sortArrayBy(UnsortableCatalogs, 'path', 'nestedString')
 
-  expect(sortedArray).toBe(unsortableArray)
+  expect(sortedArray).toBe(UnsortableCatalogs)
 })
 
 test('Returns unsorted array if sorting on type timestamp is not possible', () => {
-  const sortedArray = sortArrayBy(unsortableArray, 'timestamp', 'timestamp')
+  const sortedArray = sortArrayBy(UnsortableCatalogs, 'timestamp', 'timestamp')
 
-  expect(sortedArray).toBe(unsortableArray)
+  expect(sortedArray).toBe(UnsortableCatalogs)
 })
 
 test('Returns sorted array with empty values first if sorting an array of objects where properties are missing', () => {
-  const arrayWithMissingProperties = [
-    {
-      id: {
-        path: '/test/path/1'
-      },
-      state: 'RAW'
-    },
-    {
-      id: {
-        path: '/test/path/2'
-      }
-    },
-    {
-      id: {
-        path: '/test/path/3'
-      },
-      state: 'OTHER'
-    }
-  ]
-  const arrayWithMissingPropertiesReversed = [...arrayWithMissingProperties].reverse()
-  const sortedArray = sortArrayBy(arrayWithMissingProperties, 'state', 'string')
+  const arrayWithMissingPropertiesReversed = [...CatalogsWithSomeMissingProperties].reverse()
+  const sortedArray = sortArrayBy(CatalogsWithSomeMissingProperties, 'state', 'string')
   const sortedArrayReverse = sortArrayBy(arrayWithMissingPropertiesReversed, 'state', 'string')
 
   expect(sortedArray).toStrictEqual(arrayWithMissingPropertiesReversed)
-  expect(sortedArrayReverse).toStrictEqual(arrayWithMissingProperties)
+  expect(sortedArrayReverse).toStrictEqual(CatalogsWithSomeMissingProperties)
 })
 
 test('Returns unsorted array if sorting an array of objects where all properties are missing', () => {
-  const arrayWithMissingProperties = [
-    {
-      id: {
-        path: '/test/path/1'
-      }
-    },
-    {
-      id: {
-        path: '/test/path/2'
-      }
-    }
-  ]
-  const sortedArray = sortArrayBy(arrayWithMissingProperties, 'state', 'string')
+  const sortedArray = sortArrayBy(CatalogsWithMissingProperties, 'state', 'string')
 
-  expect(sortedArray).toBe(arrayWithMissingProperties)
+  expect(sortedArray).toBe(CatalogsWithMissingProperties)
 })
