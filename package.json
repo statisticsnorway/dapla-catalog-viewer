@@ -1,6 +1,6 @@
 {
   "name": "@statisticsnorway/dapla-catalog-viewer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Statistics Norway Dataplatform Catalog Viewer",
   "main": "lib/bundle.js",
   "repository": {

@@ -9,20 +9,30 @@ import { TEST_IDS, UI } from '../enums'
 import TestCatalogs from './test-data/TestCatalogs.json'
 
 const { language } = TEST_CONFIGURATIONS
-const testCatalog = TestCatalogs.catalogs[0]
 
-const setup = () => {
+const setup = (id, pseudoConfig) => {
   const { getByPlaceholderText, getByTestId, getByText } = render(
-    <PseudoConfigView catalog={testCatalog.id.path} pseudoConfig={testCatalog.pseudoConfig} language={language} />
+    <PseudoConfigView catalog={id.path} pseudoConfig={pseudoConfig} language={language} />
   )
 
   return { getByPlaceholderText, getByTestId, getByText }
 }
 
 test('Renders correctly', () => {
-  const { getByTestId, getByText } = setup()
+  const { id, pseudoConfig } = TestCatalogs.catalogs[0]
+  const { getByTestId, getByText } = setup(id, pseudoConfig)
 
   userEvent.click(getByTestId(TEST_IDS.PSEUDO_CONFIG_ICON))
 
   expect(getByText(UI.PSEUDO_CONFIG[language])).toBeInTheDocument()
+})
+
+test('Renders nothing if recieved pseudoConfig is not an object', () => {
+  const { id, pseudoConfig } = TestCatalogs.catalogs[1]
+  setup(id, pseudoConfig)
+})
+
+test('Renders nothing if recieved pseudoConfig is empty', () => {
+  const { id, pseudoConfig } = TestCatalogs.catalogs[2]
+  setup(id, pseudoConfig)
 })
