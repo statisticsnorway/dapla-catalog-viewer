@@ -9,6 +9,7 @@ import { TEST_IDS, UI } from '../enums'
 
 import TestCatalogs from './test-data/TestCatalogs.json'
 import EmptyCatalogs from './test-data/EmptyCatalogs.json'
+import BrokenCatalogs from './test-data/BrokenCatalogs.json'
 import CorruptedCatalogs from './test-data/CorruptedCatalogs.json'
 
 jest.mock('../components/views/PseudoConfigView', () => () => null)
@@ -83,11 +84,23 @@ test('Does not crash', () => {
   expect(getByPlaceholderText(UI.FILTER_TABLE[language]))
 })
 
+test('Shows loading', () => {
+  useAxios.mockReturnValue([{ data: undefined, error: undefined, loading: true }, refetch])
+  setup()
+})
+
 test('Handles API returning something else than an array of catalogs', () => {
   useAxios.mockReturnValue([{ data: CorruptedCatalogs, error: undefined, loading: false }, refetch])
   setup()
 
   expect(global.console.log).toHaveBeenCalledWith('Recieved catalogs is not of Array format, recieved was:')
+})
+
+test('Handles API returning catalogs with missing or broken information', () => {
+  useAxios.mockReturnValue([{ data: BrokenCatalogs, error: undefined, loading: false }, refetch])
+  const { queryAllByText } = setup()
+
+  expect(queryAllByText('Invalid Date - Invalid Date')).toHaveLength(1)
 })
 
 test('Renders error when api returns error', () => {

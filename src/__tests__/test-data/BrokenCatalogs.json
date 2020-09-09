@@ -1,0 +1,15 @@
+{
+  "catalogs": [
+    {
+      "id": {
+        "path": "/test/path/1"
+      }
+    },
+    {
+      "id": {
+        "path": "/another",
+        "timestamp": "Not a timestamp"
+      }
+    }
+  ]
+}

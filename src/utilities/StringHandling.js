@@ -1,5 +1,5 @@
 export const convertDateToView = (value, seconds = false) => {
-  try {
+  if (value !== undefined) {
     const date = new Date(value - 1000)
     let options = { hour: '2-digit', minute: '2-digit' }
 
@@ -8,9 +8,7 @@ export const convertDateToView = (value, seconds = false) => {
     }
 
     return `${date.toLocaleDateString()} - ${date.toLocaleTimeString([], options)}`
-  } catch (e) {
-    console.log(e)
-
+  } else {
     return value
   }
 }
