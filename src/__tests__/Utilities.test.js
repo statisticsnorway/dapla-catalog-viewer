@@ -52,10 +52,11 @@ test('Returns sorted array with empty values first if sorting an array of object
       state: 'OTHER'
     }
   ]
+  const arrayWithMissingPropertiesReversed = arrayWithMissingProperties.reverse()
   const sortedArray = sortArrayBy(arrayWithMissingProperties, 'state', 'string')
-  const sortedArrayReverse = sortArrayBy(arrayWithMissingProperties.reverse(), 'state', 'string')
+  const sortedArrayReverse = sortArrayBy(arrayWithMissingPropertiesReversed, 'state', 'string')
 
-  expect(sortedArray).toBe(arrayWithMissingProperties.reverse())
+  expect(sortedArray).toBe(arrayWithMissingPropertiesReversed)
   expect(sortedArrayReverse).toBe(arrayWithMissingProperties)
 })
 
