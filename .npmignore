@@ -5,10 +5,10 @@
 /.idea
 azure-pipelines.yml
 babel.config.js
+docker-entrypoint.sh
 Dockerfile
 nginx.conf
 rollup.config.js
 sonar-project.properties
 .env
-.env.production
 *.tgz

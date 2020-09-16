@@ -36,14 +36,15 @@ function AppSettings ({ open, setOpen }) {
 
   const setDefaults = () => {
     setSettingsEdited(true)
-    setApi(process.env.REACT_APP_API)
-    setApiUrl(process.env.REACT_APP_API)
+    setApi(window._env.REACT_APP_API)
+    setApiUrl(window._env.REACT_APP_API)
   }
 
   useEffect(() => {
-    execute()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    if (open && !setSettingsEdited) {
+      execute()
+    }
+  }, [execute, open])
 
   return (
     <Modal open={open} onClose={() => setOpen(false)} style={SSB_STYLE}>

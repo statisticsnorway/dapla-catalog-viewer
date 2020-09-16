@@ -38,5 +38,5 @@ export const UI = {
   VALUATION: {
     en: 'Valuation',
     nb: 'Verdivurdering'
-  },
+  }
 }
