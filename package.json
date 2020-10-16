@@ -1,6 +1,6 @@
 {
   "name": "@statisticsnorway/dapla-catalog-viewer",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Statistics Norway Dataplatform Catalog Viewer",
   "main": "lib/bundle.js",
   "repository": {
@@ -17,7 +17,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.0",
     "semantic-ui-css": "^2.4.0",
-    "semantic-ui-react": "^1.0.0"
+    "semantic-ui-react": "^2.0.0"
   },
   "scripts": {
     "prestart": "react-env --dest ./public",
