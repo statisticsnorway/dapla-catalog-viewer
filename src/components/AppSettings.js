@@ -24,9 +24,12 @@ function AppSettings ({ open, setOpen }) {
   const [{ error, loading }, execute] = useAxios(`${apiUrl}${API.GET_HEALTH}`, { manual: true, useCache: false })
 
   const applySettings = () => {
-    execute()
     setApi(apiUrl)
     setSettingsEdited(false)
+
+    if (!settingsEdited) {
+      execute()
+    }
   }
 
   const changeSettings = (value) => {
@@ -44,7 +47,7 @@ function AppSettings ({ open, setOpen }) {
     if (open && !setSettingsEdited) {
       execute()
     }
-  }, [execute, open])
+  }, [execute, open, settingsEdited])
 
   return (
     <Modal open={open} onClose={() => setOpen(false)} style={SSB_STYLE}>
@@ -102,13 +105,12 @@ function AppSettings ({ open, setOpen }) {
           </Grid>
         </Container>
       </Modal.Content>
-      <Segment basic>
-        <SimpleFooter
-          language={language}
-          appVersion={process.env.REACT_APP_VERSION}
-          sourceUrl={process.env.REACT_APP_SOURCE_URL}
-        />
-      </Segment>
+      <SimpleFooter
+        language={language}
+        showScrollToTop={false}
+        appVersion={process.env.REACT_APP_VERSION}
+        sourceUrl={process.env.REACT_APP_SOURCE_URL}
+      />
     </Modal>
   )
 }

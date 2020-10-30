@@ -1,6 +1,6 @@
 {
   "name": "@statisticsnorway/dapla-catalog-viewer",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Statistics Norway Dataplatform Catalog Viewer",
   "main": "lib/bundle.js",
   "repository": {
@@ -10,12 +10,12 @@
   "author": "Statistics Norway",
   "license": "Apache-2.0",
   "dependencies": {
-    "@statisticsnorway/dapla-js-utilities": "^0.1.0",
-    "axios": "^0.20.0",
+    "@statisticsnorway/dapla-js-utilities": "^0.2.0",
+    "axios": "^0.21.0",
     "axios-hooks": "^2.0.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.0",
     "semantic-ui-css": "^2.4.0",
     "semantic-ui-react": "^2.0.0"
   },
@@ -25,7 +25,6 @@
     "build": "react-scripts build && react-env --dest ./build",
     "package": "rollup --config",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "coverage": "react-scripts test --coverage --watchAll=false"
   },
   "eslintConfig": {
@@ -88,8 +87,8 @@
     "@babel/preset-react": "^7.10.4",
     "@beam-australia/react-env": "^2.1.2",
     "@rollup/plugin-babel": "^5.2.0",
-    "@rollup/plugin-commonjs": "^15.0.0",
-    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
     "@testing-library/jest-dom": "^5.0.0",
     "@testing-library/react": "^11.0.1",
     "@testing-library/user-event": "^12.0.0",

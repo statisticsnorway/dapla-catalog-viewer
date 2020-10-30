@@ -5,7 +5,7 @@ import { render } from '@testing-library/react'
 
 import { AppHome } from '../components'
 import { TEST_CONFIGURATIONS } from '../configurations/TEST'
-import { TEST_IDS, UI } from '../enums'
+import { UI } from '../enums'
 
 import TestCatalogs from './test-data/TestCatalogs.json'
 import EmptyCatalogs from './test-data/EmptyCatalogs.json'
@@ -31,7 +31,9 @@ const setup = () => {
 }
 
 describe('Common mock', () => {
-  useAxios.mockReturnValue([{ data: TestCatalogs, error: undefined, loading: false }, refetch])
+  beforeEach(() => {
+    useAxios.mockReturnValue([{ data: TestCatalogs, error: undefined, loading: false }, refetch])
+  })
 
   test('Filtering catalogs table works correctly', async () => {
     const { getByPlaceholderText, getByText, queryAllByText } = setup()
@@ -66,14 +68,6 @@ describe('Common mock', () => {
     userEvent.click(getByText(UI.STATE[language]))
     userEvent.click(getByText(UI.VALUATION[language]))
     userEvent.click(getByText(UI.TIMESTAMP[language]))
-  })
-
-  test('Refetch triggers correctly', () => {
-    const { getByTestId } = setup()
-
-    userEvent.click(getByTestId(TEST_IDS.REFETCH_DATA_ICON))
-
-    expect(refetch).toHaveBeenCalled()
   })
 })
 
