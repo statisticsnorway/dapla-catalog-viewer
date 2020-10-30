@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid, Icon, Input } from 'semantic-ui-react'
 import { InfoPopup, SSB_COLORS } from '@statisticsnorway/dapla-js-utilities'
 
-import { TEST_IDS, UI } from '../enums'
+import { UI } from '../enums'
 
 function CatalogFilter ({ error, loading, filterBy, language, setFilterBy, refetch, fetchTime }) {
   return (
@@ -33,7 +33,6 @@ function CatalogFilter ({ error, loading, filterBy, language, setFilterBy, refet
               loading={loading}
               disabled={loading}
               style={{ color: SSB_COLORS.BLUE }}
-              data-testid={TEST_IDS.REFETCH_DATA_ICON}
             />
           }
         />
