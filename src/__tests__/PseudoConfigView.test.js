@@ -27,12 +27,12 @@ test('Renders correctly', () => {
   expect(getByText(UI.PSEUDO_CONFIG[language])).toBeInTheDocument()
 })
 
-test('Renders nothing if recieved pseudoConfig is not an object', () => {
+test('Renders nothing if received pseudoConfig is not an object', () => {
   const { id, pseudoConfig } = TestCatalogs.catalogs[1]
   setup(id, pseudoConfig)
 })
 
-test('Renders nothing if recieved pseudoConfig is empty', () => {
+test('Renders nothing if received pseudoConfig is empty', () => {
   const { id, pseudoConfig } = TestCatalogs.catalogs[2]
   setup(id, pseudoConfig)
 })

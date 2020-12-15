@@ -42,7 +42,7 @@ function AppHome ({ restApi, language }) {
           console.log(e)
         }
       } else {
-        console.log('Recieved catalogs is not of Array format, recieved was:')
+        console.log('Received catalogs is not of Array format, received was:')
         console.log(data)
       }
     }

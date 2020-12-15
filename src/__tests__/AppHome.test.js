@@ -87,7 +87,7 @@ test('Handles API returning something else than an array of catalogs', () => {
   useAxios.mockReturnValue([{ data: CorruptedCatalogs, error: undefined, loading: false }, refetch])
   setup()
 
-  expect(global.console.log).toHaveBeenCalledWith('Recieved catalogs is not of Array format, recieved was:')
+  expect(global.console.log).toHaveBeenCalledWith('Received catalogs is not of Array format, received was:')
 })
 
 test('Handles API returning catalogs with missing or broken information', () => {
