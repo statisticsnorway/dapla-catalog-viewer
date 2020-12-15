@@ -1,6 +1,6 @@
 {
   "name": "@statisticsnorway/dapla-catalog-viewer",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Statistics Norway Dataplatform Catalog Viewer",
   "main": "lib/bundle.js",
   "repository": {
@@ -15,7 +15,7 @@
     "axios-hooks": "^2.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-scripts": "4.0.0",
+    "react-scripts": "4.0.1",
     "semantic-ui-css": "^2.4.0",
     "semantic-ui-react": "^2.0.0"
   },
@@ -87,8 +87,8 @@
     "@babel/preset-react": "^7.10.4",
     "@beam-australia/react-env": "^2.1.2",
     "@rollup/plugin-babel": "^5.2.0",
-    "@rollup/plugin-commonjs": "^16.0.0",
-    "@rollup/plugin-node-resolve": "^10.0.0",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.1",
     "@testing-library/jest-dom": "^5.0.0",
     "@testing-library/react": "^11.0.1",
     "@testing-library/user-event": "^12.0.0",

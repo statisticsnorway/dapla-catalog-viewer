@@ -53,7 +53,7 @@ Run `yarn start` and navigate to `http://localhost:3000/`.
 running to function locally.
 
 ### Publish library
-To publish to [npm](https://www.npmjs.com/) you need a user and a membership in the `statisticsnorway` organization on 
+To publish to [npm](https://www.npmjs.com) you need a user and a membership in the `statisticsnorway` organization on 
 npm. The user must also have 2FA authentication enabled. Steps to follow:
 
 1. Login into your npm account in a terminal with `npm login`
