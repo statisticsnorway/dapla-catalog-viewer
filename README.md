@@ -6,7 +6,7 @@ This application is built for in-house use in Statistics Norway and it aims to c
 catalogs exposed by [dapla-catalog](https://github.com/statisticsnorway/dapla-catalog).
 
 Functionality includes:
-* Listing catalogs (paths) and the ability to filter/search through
+* Listing catalogs (paths), and the ability to filter/search through
 * Viewing pseudonymization configuration for a given path
 
 The project makes limited use of the [ssb-component-library](https://github.com/statisticsnorway/ssb-component-library)
