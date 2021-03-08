@@ -45,8 +45,8 @@ Run `yarn start` and navigate to `http://localhost:3000/`.
 #### Docker locally
 * `yarn build`
 * `docker build -t dapla-catalog-viewer .`
-* `docker run -p 8000:80 dapla-catalog-viewer:latest`
-  * Alternatively with custom environment variables: `docker run -p 8000:80 -e REACT_APP_API=http://localhost:20111 dapla-catalog-viewer:latest`
+* `docker run -p 8000:8180 dapla-catalog-viewer:latest`
+  * Alternatively with custom environment variables: `docker run -p 8000:8180 -e REACT_APP_API=http://localhost:20111 dapla-catalog-viewer:latest`
 * Navigate to `http://localhost:8000`
 
 **Note** that this application requires [dapla-project (localstack)](https://github.com/statisticsnorway/dapla-project/blob/master/localstack/README.md)
